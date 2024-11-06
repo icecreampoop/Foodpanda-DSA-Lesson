@@ -15,6 +15,17 @@ type linkedList struct {
 	size int
 }
 
+func (p *linkedList) get(position int) string {
+	var temp *Node = p.head
+	
+	for position != 0 {
+		temp = temp.next
+		position--
+	}
+
+	return temp.item
+}
+
 func (p *linkedList) addNode(name string) error {
 	newNode := &Node{
 		item: name,
@@ -48,16 +59,49 @@ func (p *linkedList) printAllNodes() error {
 	return nil
 }
 
-func (p *linkedList) addAtPos() error {
-	
+func (p *linkedList) addAtPos(position int, item string) error {
+	var tempHead = p.head
+	var prev *Node
+
+	// if pos given > whats inside just add to end
+	if position >= p.size {
+		for tempHead.next != nil {
+			tempHead = tempHead.next
+		}
+
+		// once reached end, to make sure the new node is added at the end instead
+		prev = tempHead
+		tempHead = nil
+	} else {
+		for position != 0 {
+			prev = tempHead
+			tempHead = tempHead.next
+			position--
+		}
+	}
+
+	// meaning if adding at pos 0, the first element
+	if prev == nil {
+		p.head = &Node{
+			item: item,
+			next: p.head,
+		}
+	} else {
+		prev.next = &Node{
+			item: item,
+			next: tempHead,
+		}
+	}
+
+	p.size++
 	return nil
 }
 
-func (p *linkedList) remove(position int) error{
+func (p *linkedList) remove(position int) error {
 	var current *Node = p.head
 	var prev *Node
 
-	if position > p.size - 1 || 0 > position{
+	if position > p.size-1 || 0 > position {
 		return errors.New("Position out of index bounds")
 	}
 
@@ -81,7 +125,7 @@ func (p *linkedList) remove(position int) error{
 }
 
 func main() {
-	newLinkedList := linkedList {}
+	newLinkedList := linkedList{}
 	newLinkedList.addNode("lol1")
 	newLinkedList.addNode("lol2")
 	newLinkedList.addNode("lol3")
@@ -95,4 +139,18 @@ func main() {
 	println("removing index 1")
 	newLinkedList.remove(1)
 	newLinkedList.printAllNodes()
+
+	println("adding at index 0")
+	newLinkedList.addAtPos(0, "valo1")
+	newLinkedList.printAllNodes()
+	println("adding at index 2")
+	newLinkedList.addAtPos(2, "valo3")
+	newLinkedList.printAllNodes()
+	println("adding to end")
+	newLinkedList.addAtPos(1000, "valo5")
+	newLinkedList.printAllNodes()
+
+	for x := 0; x < newLinkedList.size; x++ {
+		println("Item at position", x, "is:", newLinkedList.get(x))
+	}
 }
