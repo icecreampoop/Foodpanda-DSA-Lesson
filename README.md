@@ -1,4 +1,6 @@
-# Part of the foodpanda lessons but I found this worthwhile to share just to show yes, I do know some DSA stuff
+# Part of the foodpanda lessons related to DSA stuff
+
+Publishing this to github for visibility sake since I am just starting my career, gotta look decent at least. I have other notes relating to DSA beyond what is shown here and practise ✨Leetcode✨ sometimes.
 
 ## Table of Contents
 - Linked-Lists
