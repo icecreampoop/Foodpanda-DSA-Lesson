@@ -1,14 +1,16 @@
 # Part of the foodpanda lessons but I found this worthwhile to share just to show yes, I do know some DSA stuff
 
-## Linked-List
+## Table of Contents
+- Linked-Lists
+- 
+
+## Linked-Lists
 
 ### Activity #1: Create a simple main program that uses a linked list structure
 
 1. Create an instance of the linked list.
 2. Add 4 items to it by calling the `addNode()` function.
 3. Now call the `printAllNodes` function to verify that the items were added correctly to the linked list.
-
----
 
 ### Activity #2: Adding more functions to the linked list structure
 
