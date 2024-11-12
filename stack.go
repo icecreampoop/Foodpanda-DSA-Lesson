@@ -62,33 +62,33 @@ func (p *stack) printAllNodes() error {
 	return nil
 }
 
-func main() {
-	newStack := stack{}
-	newStack.push("bob")
-	newStack.push("tom")
-	newStack.push("romeo")
-	newStack.push("dio")
-	newStack.printAllNodes()
+// func main() {
+// 	newStack := stack{}
+// 	newStack.push("bob")
+// 	newStack.push("tom")
+// 	newStack.push("romeo")
+// 	newStack.push("dio")
+// 	newStack.printAllNodes()
 
-	// activity 2, alternatively can travel down the node instead
-	tempStack := stack{}
+// 	// activity 2, alternatively can travel down the node instead
+// 	tempStack := stack{}
 
-	for newStack.size > 0 {
-		tempString, _ := newStack.pop()
+// 	for newStack.size > 0 {
+// 		tempString, _ := newStack.pop()
 
-		println("Manual Print:", tempString)
-		tempStack.push(tempString)
-	}
+// 		println("Manual Print:", tempString)
+// 		tempStack.push(tempString)
+// 	}
 
-	for tempStack.size > 0 {
-		x, _ := tempStack.pop()
-		newStack.push(x)
-	}
+// 	for tempStack.size > 0 {
+// 		x, _ := tempStack.pop()
+// 		newStack.push(x)
+// 	}
 
-	newStack.printAllNodes()
+// 	newStack.printAllNodes()
 
-	println("Check bool:", balancedParenthesis("(("))
-}
+// 	println("Check bool:", balancedParenthesis("(("))
+// }
 
 // leetcode innit, tested to work with all edge cases in leetcode
 func balancedParenthesis(input string) bool {
